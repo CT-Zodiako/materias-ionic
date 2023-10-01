@@ -1,0 +1,7 @@
+{
+  "name": "iguia2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

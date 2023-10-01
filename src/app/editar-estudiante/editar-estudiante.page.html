@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Editar materia</ion-title>
+    <ion-buttons slop="start">
+      <ion-button (click)="regresar()">
+        <ion-icon name="close-outlinne"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" *ngIf="seleccionado">
+  <form (ngSubmit)="editar(seleccionado)" #editarForm="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">ID:</ion-label>
+        <ion-input
+          aria-label="ID:"
+          type="text"
+          name="id"
+          [(ngModel)]="seleccionado.id"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nombre Estudiante:</ion-label>
+        <ion-input
+          type="text"
+          name="nombre"
+          [(ngModel)]="seleccionado.nombre_estudiante"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Faltas:</ion-label>
+        <ion-select
+          required
+          value="{{seleccionado.faltas}}"
+          [(ngModel)]="seleccionado.faltas"
+          name="faltas"
+        >
+          <ion-select-option value="ingenieria">
+            Ingenieria de sistemas
+          </ion-select-option>
+          <ion-select-option value="tecnologia">
+            Tecnologia Desarrollo
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nota 1:</ion-label>
+        <ion-input
+          type="number"
+          name="nota_uno"
+          [(ngModel)]="seleccionado.nota_uno"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nota 2:</ion-label>
+        <ion-input
+          type="number"
+          name="nota_dos"
+          [(ngModel)]="seleccionado.nota_dos"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nota 3:</ion-label>
+        <ion-input
+          type="number"
+          name="nota_tres"
+          [(ngModel)]="seleccionado.nota_tres"
+          required
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button color="primary" type="submit" *ngIf="seleccionado" [disabled]="!editarForm.form.valid">
+      Guardar
+    </ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Nuevo Estudiante</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form (ngSubmit)="guardar(nuevoActor)" #nuevoForm="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">ID:</ion-label>
+        <ion-input
+          aria-label="ID:"
+          type="text"
+          name="id"
+          [(ngModel)]="nuevoActor.id"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nombre Estudiante:</ion-label>
+        <ion-input
+          type="text"
+          name="nombre"
+          [(ngModel)]="nuevoActor.nombre_estudiante"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Faltas:</ion-label>
+        <ion-select
+          required
+          value="{{nuevoActor.faltas}}"
+          [(ngModel)]="nuevoActor.faltas"
+          name="faltas"
+        >
+          <ion-select-option value="ingenieria">
+            Ingenieria de sistemas
+          </ion-select-option>
+          <ion-select-option value="tecnologia">
+            Tecnologia Desarrollo
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nota 1:</ion-label>
+        <ion-input
+          type="number"
+          name="nota_uno"
+          [(ngModel)]="nuevoActor.nota_uno"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nota 2:</ion-label>
+        <ion-input
+          type="number"
+          name="nota_dos"
+          [(ngModel)]="nuevoActor.nota_dos"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nota 3:</ion-label>
+        <ion-input
+          type="number"
+          name="nota_tres"
+          [(ngModel)]="nuevoActor.nota_tres"
+          required
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button
+      color="primary"
+      type="submit"
+      [disabled]="!this.nuevoForm.form.valid"
+    >
+      Guardar
+    </ion-button>
+  </form>
+</ion-content>

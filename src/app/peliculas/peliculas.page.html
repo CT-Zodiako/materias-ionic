@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Mis Materias.com</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content [fullscreen]="true"> 
+      <ion-list>
+        <ion-item-sliding *ngFor="let peliculasItem of mispeliculas">
+          <ion-item>
+            <ion-icon slot="start" name="clipboard-outline"></ion-icon>
+            <ion-label>
+              <h2>{{peliculasItem.nombre}}</h2>
+            </ion-label>
+          </ion-item>
+      
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="borrarPelicula(peliculasItem);$event.stopPropagation();">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-item-option>
+          <ion-item-option routerLink="../editarpelicula/{{peliculasItem.id}}">
+            <ion-icon slot="icon-only" name="pencil"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+
+        <ion-item-options side="start">
+          <ion-item-option routerLink="../actores/{{peliculasItem.id}}">
+            <ion-icon slot="icon-only" name="people">Reparto</ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+
+        </ion-item-sliding>
+      </ion-list>
+
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button routerLink="../nuevapelicula" routerDirector="forward">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+  </ion-content>
+
